@@ -4,7 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-
+    locale: fr
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -26,6 +26,25 @@ services:
     App\Controller\:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
+
+    App\EventListener\Lifecycle\:
+        resource: '../src/EventListener/Lifecycle'
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+
+    # EventListener
+    App\EventListener\AuthenticationSuccessListener:
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+
+    # Generator
+    Ramsey\Uuid\Doctrine\UuidGenerator:
+        class: Ramsey\Uuid\Doctrine\UuidGenerator
+
+    # Converter
+    App\Converter\RequestParameterConverter:
+        tags:
+            - { name: request.param_converter, priority: -50, converter: app.request_params }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

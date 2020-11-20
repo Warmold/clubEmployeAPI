@@ -1,0 +1,33 @@
+App\Entity\User\User:
+    user_arnold:
+        uuid: <uuid()>
+        gender: m
+        firstname: Arnold
+        lastname: LEVEQUE
+        username: arnold@wegg.fr
+        email: arnold_willy@hotmail.fr
+        password: '\$2y\$10\$I/0.Ot22PxK8Ovzq9z7MiuitauUrSdguvw86J2mKg26u6X9yZ3XaC'
+        roles:
+            - ROLE_USER
+
+    user_anais:
+        uuid: <uuid()>
+        gender: f
+        firstname: Anais
+        lastname: Roth
+        username: anais.roth@club-employes.com
+        email: anais.roth@club-employes.com
+        password: '\$2y\$10\$wRdbXrKdTRGQM.Q3/5bHJukqBWZcrDqU4bFG/n18xSlnNACZ3r5.a' #Anais2020
+        roles:
+            - ROLE_USER
+
+    user_walid:
+        uuid: <uuid()>
+        gender: m
+        firstname: Walid
+        lastname: CE
+        username: walid@club-employes.com
+        email: walid@club-employes.com
+        password: '\$2y\$10\$KH6UVID76ZipnIHiIvZUEeQ3oPNzsAnRjOsF7DS34w4bmevGu9uJe'     #Walid2020
+        roles:
+            - ROLE_USER
